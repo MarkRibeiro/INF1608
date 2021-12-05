@@ -1,25 +1,55 @@
-//Aluno: Mark Ribeiro
-//Matrícula: 1612043
-#include<stdio.h>
-#include<math.h>
+//Aluno: Arthur Ozorio e Mark Ribeiro
+//Matrícula: 1810334 e 1612043
 #include"ode.h"
 
-double RungeKutta(double t0, double t1, double h, double y0, double (*f) (double t, double y)){
-    double t=t0;
-    double y=y0;
-    while((t1-t) >= h/2)
-    {
-        double k1 = h*f(t,y);
-        double k2 = h*f(t+h/2,y+k1/2);
-        double k3 = h*f(t+h/2,y+k2/2);
-        double k4 = h*f(t+h,y+k3);
-        y = y+(k1+2*k2+2*k3+k4)/6.0;
-        if(t+h>t1){
-            h = t1-t;
+double Theta(double t, double theta0){
+    return theta0*cos(sqrt(G/L)*t);
+}
+
+double ThetaLinha(double theta){
+    return -(G/L)*sin(theta);
+}
+
+double PeriodSimplified(){
+    return 2*PI*sqrt(L/G);
+}
+
+double PeriodRK(double theta0, double h){
+    int count = 0;
+    double v1, v2 = 0, T, t1, t2;
+    while (count < 10){
+        if (v1*v2>0){
+            count += 1;           
         }
-        t = t+h;
+        v1 = v2;
+        t1 = t2;
+        t2 = RungeKutta(t1, h, &theta0, &v2);
     }
-    return y;
+    T = 2 * (t1 + (fabs(v1)/(fabs(v1)+fabs(v2))) * (t2 - t1));
+    return T/10;
+}
+
+double RungeKutta(double t0, double h, double *theta, double *v){
+    double kt1, kt2, kt3, kt4;
+    double kv1, kv2, kv3, kv4;
+
+    kt1 = h*(*v);
+    kv1 = h*ThetaLinha(*theta);
+
+    kt2 = h*(*v + kv1/2);
+    kv2 = h*ThetaLinha(*theta + kt1/2);
+
+
+    kt3 = h*(*v + kv2/2);
+    kv3 = h*ThetaLinha(*theta + kt2/2);
+
+    kt4 = h*(*v + kv3);
+    kv4 = h*ThetaLinha(*theta + kt3);
+
+    *theta = *theta+(kt1+2*kt2+2*kt3+kt4)/6.0;
+    *v = *v+(kv1+2*kv2+2*kv3+kv4)/6.0;
+
+    return t0+h;
 }
 
 double RungeKuttaAcoplado(double t0, double t1, double y0, double (*f) (double t, double y), double tol){

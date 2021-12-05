@@ -1,4 +1,20 @@
-//Aluno: Mark Ribeiro
-//Matrícula: 1612043
-double RungeKutta(double t0, double t1, double h, double y0, double (*f) (double t, double y));
+//Aluno: Arthur Ozorio e Mark Ribeiro
+//Matrícula: 1810334 e 1612043
+#include<stdio.h>
+#include<math.h>
+
+#define G 9.81
+#define L 10
+#define PI 3.1415926535897932
+
+double Theta(double t, double theta0);
+
+double ThetaLinha(double theta);
+
+double PeriodSimplified();
+
+double PeriodRK(double theta0, double h);
+
+double RungeKutta(double t0, double h, double *theta, double *v);
+
 double RungeKuttaAcoplado(double t0, double t1, double y0, double (*f) (double t, double y), double tol);
