@@ -2,6 +2,7 @@
 //Matrícula: 1810334 e 1612043
 #include<stdio.h>
 #include<math.h>
+#include<sys/time.h>
 
 #define G 9.81
 #define L 10
