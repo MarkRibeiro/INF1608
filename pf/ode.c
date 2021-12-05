@@ -18,7 +18,7 @@ double PeriodRK(double theta0, double h){
     int count = 0;
     double v1, v2 = 0, T, t1, t2;
     while (count < 10){
-        if (v1*v2>0){
+        if (v1*v2 < 0){
             count += 1;           
         }
         v1 = v2;
