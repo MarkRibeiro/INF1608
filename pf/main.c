@@ -18,7 +18,7 @@ int main (){
     printf("\n*****Periodo RK com h = 1e-2*****\n");
     for(int i=0;i<n;i++){
         gettimeofday(&start, NULL);
-        period = PeriodRK(theta[i], h);
+        period = PeriodRK(theta[i], h, 0);
         gettimeofday(&stop, NULL);
         totalTime = ((stop.tv_usec - start.tv_usec)/1000) + (1000*(stop.tv_sec - start.tv_sec));
         printf("periodo com theta = %.0f°: %f", (theta[i]*180)/PI, period);
@@ -29,7 +29,7 @@ int main (){
     printf("\n*****Periodo RK com h = 1e-3*****\n");
     for(int i=0;i<n;i++){
         gettimeofday(&start, NULL);
-        period = PeriodRK(theta[i], h);
+        period = PeriodRK(theta[i], h, 0);
         gettimeofday(&stop, NULL);
         totalTime = ((stop.tv_usec - start.tv_usec)/1000) + (1000*(stop.tv_sec - start.tv_sec));
         printf("periodo com theta = %.0f°: %f", (theta[i]*180)/PI, period);
@@ -40,7 +40,18 @@ int main (){
     printf("\n*****Periodo RK com h = 1e-4*****\n");
     for(int i=0;i<n;i++){
         gettimeofday(&start, NULL);
-        period = PeriodRK(theta[i], h);
+        period = PeriodRK(theta[i], h, 0);
+        gettimeofday(&stop, NULL);
+        totalTime = ((stop.tv_usec - start.tv_usec)/1000) + (1000*(stop.tv_sec - start.tv_sec));
+        printf("periodo com theta = %.0f°: %f", (theta[i]*180)/PI, period);
+        printf(" Tempo gasto: %.2ldms\n", totalTime);
+    }
+
+    h = 1e-4;
+    printf("\n*****Periodo RK adaptativo com h = 1e-4*****\n");
+    for(int i=0;i<n;i++){
+        gettimeofday(&start, NULL);
+        period = PeriodRK(theta[i], h, 1);
         gettimeofday(&stop, NULL);
         totalTime = ((stop.tv_usec - start.tv_usec)/1000) + (1000*(stop.tv_sec - start.tv_sec));
         printf("periodo com theta = %.0f°: %f", (theta[i]*180)/PI, period);
