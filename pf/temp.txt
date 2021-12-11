@@ -1,0 +1,63 @@
+*****Periodo simplificado*****
+periodo: 6.343740
+
+*****Periodo RK com h = 1e-2*****
+periodo com theta = 1°: 6.343861 Tempo gasto: 00ms
+periodo com theta = 2°: 6.344223 Tempo gasto: 00ms
+periodo com theta = 4°: 6.345673 Tempo gasto: 00ms
+periodo com theta = 12°: 6.361175 Tempo gasto: 00ms
+periodo com theta = 36°: 6.503900 Tempo gasto: 00ms
+periodo com theta = 90°: 7.487774 Tempo gasto: 00ms
+
+*****Periodo RK com h = 1e-3*****
+periodo com theta = 1°: 6.343861 Tempo gasto: 02ms
+periodo com theta = 2°: 6.344223 Tempo gasto: 02ms
+periodo com theta = 4°: 6.345673 Tempo gasto: 02ms
+periodo com theta = 12°: 6.361175 Tempo gasto: 02ms
+periodo com theta = 36°: 6.503900 Tempo gasto: 02ms
+periodo com theta = 90°: 7.487774 Tempo gasto: 03ms
+
+*****Periodo RK com h = 1e-4*****
+periodo com theta = 1°: 6.343861 Tempo gasto: 18ms
+periodo com theta = 2°: 6.344223 Tempo gasto: 18ms
+periodo com theta = 4°: 6.345673 Tempo gasto: 18ms
+periodo com theta = 12°: 6.361175 Tempo gasto: 19ms
+periodo com theta = 36°: 6.503900 Tempo gasto: 21ms
+periodo com theta = 90°: 7.487774 Tempo gasto: 24ms
+
+*****Periodo RK adaptativo com h = 1e-4*****
+periodo com theta = 1°: 6.343861 Tempo gasto: 19ms
+periodo com theta = 2°: 6.344223 Tempo gasto: 19ms
+periodo com theta = 4°: 6.345673 Tempo gasto: 19ms
+periodo com theta = 12°: 6.361175 Tempo gasto: 1088ms
+periodo com theta = 36°: 6.503900 Tempo gasto: 4173ms
+periodo com theta = 90°: 7.487774 Tempo gasto: 10574ms
+
+*****Angulo inicial maximo para que a formula simplificada tenha erro menor que 1e-3*****
+
+Angulo maximo: 0.049854
+*****Periodo simplificado*****
+periodo: 6.343740
+
+*****Periodo RK com h = 1e-2*****
+periodo com theta = 1°: 6.343861 Tempo gasto: 00ms
+periodo com theta = 2°: 6.344223 Tempo gasto: 00ms
+periodo com theta = 4°: 6.345673 Tempo gasto: 00ms
+periodo com theta = 12°: 6.361175 Tempo gasto: 00ms
+periodo com theta = 36°: 6.503900 Tempo gasto: 00ms
+periodo com theta = 90°: 7.487774 Tempo gasto: 00ms
+
+*****Periodo RK com h = 1e-3*****
+periodo com theta = 1°: 6.343861 Tempo gasto: 01ms
+periodo com theta = 2°: 6.344223 Tempo gasto: 01ms
+periodo com theta = 4°: 6.345673 Tempo gasto: 01ms
+periodo com theta = 12°: 6.361175 Tempo gasto: 01ms
+periodo com theta = 36°: 6.503900 Tempo gasto: 02ms
+periodo com theta = 90°: 7.487774 Tempo gasto: 02ms
+
+*****Periodo RK com h = 1e-4*****
+periodo com theta = 1°: 6.343861 Tempo gasto: 18ms
+periodo com theta = 2°: 6.344223 Tempo gasto: 18ms
+periodo com theta = 4°: 6.345673 Tempo gasto: 18ms
+periodo com theta = 12°: 6.361175 Tempo gasto: 18ms
+periodo com theta = 36°: 6.503

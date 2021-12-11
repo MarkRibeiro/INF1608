@@ -1,6 +1,6 @@
 //Aluno: Arthur Ozorio e Mark Ribeiro
 //Matrícula: 1810334 e 1612043
-#include"ode.h"
+#include"pendulo.h"
 
 int main (){
     struct timeval start, stop;
@@ -11,7 +11,7 @@ int main (){
     double h;
     double tol = 1e-5;
     double angulo;
-
+    
     printf("*****Periodo simplificado*****\n");
     period = PeriodSimplified();
     printf("periodo: %f\n", period);
@@ -62,7 +62,7 @@ int main (){
 
     printf("\n*****Angulo inicial maximo para que a formula simplificada tenha erro menor que 1e-3*****\n");
     angulo = anguloMax(1e-3);
-    printf("\nAngulo maximo: %f\n", angulo);
+    printf("\nAngulo maximo: %.5f\n", angulo);
 
     return 0;
 }

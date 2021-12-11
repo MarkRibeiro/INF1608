@@ -1,6 +1,6 @@
 //Aluno: Arthur Ozorio e Mark Ribeiro
 //Matrícula: 1810334 e 1612043
-#include"ode.h"
+#include"pendulo.h"
 
 double Theta(double t, double theta0){
     return theta0*cos(sqrt(G/L)*t);
@@ -16,7 +16,7 @@ double PeriodSimplified(){
 
 double PeriodRK(double theta0, double h, double tol, int mode){
     int count = 0;
-    double v1, v2 = 0, T, t1, t2;
+    double v1, v2 = 0, T, t1 = 0, t2 = 0;
     while (count < 10){
         v1 = v2;
         t1 = t2;
@@ -86,10 +86,9 @@ double RungeKuttaAdapt(double t0, double h, double *theta, double *v, double tol
 
 double anguloMax(double tol)
 {
-    double a = 0, b = PI/2, c, erro;
+    double a = 0, b = PI/2, c = 0, erro;
 
     erro = (b-a)/2;
-
     while(erro > tol)
     {
         c = (a+b)/2;
