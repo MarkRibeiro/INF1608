@@ -14,8 +14,10 @@ double ThetaLinha(double theta);
 
 double PeriodSimplified();
 
-double PeriodRK(double theta0, double h, int mode);
+double PeriodRK(double theta0, double h, double tol, int mode);
 
 double RungeKutta(double t0, double h, double *theta, double *v);
 
 double RungeKuttaAdapt(double t0, double h, double *theta, double *v, double tol);
+
+double anguloMax(double tol);

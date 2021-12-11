@@ -14,13 +14,10 @@ double PeriodSimplified(){
     return 2*PI*sqrt(L/G);
 }
 
-double PeriodRK(double theta0, double h, int mode){
+double PeriodRK(double theta0, double h, double tol, int mode){
     int count = 0;
     double v1, v2 = 0, T, t1, t2;
     while (count < 10){
-        if (v1*v2 < 0){
-            count += 1;           
-        }
         v1 = v2;
         t1 = t2;
 
@@ -30,8 +27,11 @@ double PeriodRK(double theta0, double h, int mode){
         }
         else
         {
-            double tol = 1e-5;
             t2 = RungeKuttaAdapt(t1, h, &theta0, &v2, tol);
+        }
+        
+        if (v1*v2 < 0){
+            count += 1;           
         }
     }
     T = 2 * (t1 + (fabs(v1)/(fabs(v1)+fabs(v2))) * (t2 - t1));
@@ -82,4 +82,25 @@ double RungeKuttaAdapt(double t0, double h, double *theta, double *v, double tol
     *v = vi;
 
     return t1;
+}
+
+double anguloMax(double tol)
+{
+    double a = 0, b = PI/2, c, erro;
+
+    erro = (b-a)/2;
+
+    while(erro > tol)
+    {
+        c = (a+b)/2;
+
+		if(fabs(PeriodSimplified() - PeriodRK(c, 0.01, tol, 1))<0.001)
+			a = c;
+		else
+			b = c;
+		
+		erro = (b-a)/2;
+    }
+    
+    return (a + b)/2;
 }
